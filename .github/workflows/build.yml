@@ -24,8 +24,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Install Linux and Windows Cross Compilers
-        run: sudo apt-get install --yes --no-install-recommends musl-tools gcc-mingw-w64-x86-64-win32 gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+      - name: env
+        uses: ConorMacBride/install-package@v1
+        with:
+          apt: musl-tools gcc-mingw-w64-x86-64-win32 gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
       -
         name: Checkout
         uses: actions/checkout@v4
