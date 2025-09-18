@@ -25,7 +25,7 @@ cd 3proxy-${VERSION}
 patch -p0 < ../static-build.patch
 
 # build 3proxy
-make -f Makefile.Linux
+make -f Makefile.Linux ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
 strip bin/*
 cp bin/* ../build/
 
