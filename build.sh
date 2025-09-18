@@ -14,7 +14,7 @@ cd "$(dirname "$0")"
 mkdir -p build
 
 # install dependencies
-apk add --no-cache --virtual .build-deps build-base curl linux-headers 
+#apk add --no-cache --virtual .build-deps build-base curl linux-headers 
 
 # download and extract 3proxy
 curl "https://github.com/3proxy/3proxy/archive/refs/tags/${VERSION}.tar.gz" -sLo 3proxy.tar.gz
