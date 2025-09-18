@@ -9,7 +9,7 @@
  DLFLAGS = -shared
  DLSUFFICS = .ld.so
  # -lpthreads may be reuqired on some platforms instead of -pthreads
-@@ -12,3 +12,3 @@
-BUILDDIR = ../bin/
+@@ -12,5 +12,5 @@
+ BUILDDIR = ../bin/
 -CC = gcc
 +CC = arm-linux-gnueabihf-gcc
