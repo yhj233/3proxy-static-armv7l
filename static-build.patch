@@ -1,15 +1,18 @@
 --- Makefile.Linux.orig
 +++ Makefile.Linux
-@@ -14,7 +14,7 @@
- COUT = -o 
- LN = $(CC)
- DCFLAGS = 
--LDFLAGS = -fPIE -O2 -fno-strict-aliasing -pthread
-+LDFLAGS = -fPIE -O2 -fno-strict-aliasing -pthread -static -static-libgcc -static-libstdc++
- DLFLAGS = -shared
- DLSUFFICS = .ld.so
- # -lpthreads may be reuqired on some platforms instead of -pthreads
-@@ -12,5 +12,5 @@
+@@ -9,7 +9,7 @@
+ # library support. Add -DSAFESQL for poorely written ODBC library / drivers.
+ 
  BUILDDIR = ../bin/
 -CC = gcc
 +CC = arm-linux-gnueabihf-gcc
+ 
+ CFLAGS = -g  -fPIC -O2 -fno-strict-aliasing -c -pthread -DWITHSPLICE -D_GNU_SOURCE -DGETHOSTBYNAME_R -D_THREAD_SAFE -D_REENTRANT -DNOODBC -DWITH_STD_MALLOC -DFD_SETSIZE=4096 -DWITH_POLL -DWITH_NETFILTER
+ COUT = -o 
+@@ -17,7 +17,7 @@
+ DCFLAGS = 
+-LDFLAGS = -fPIC -O2 -fno-strict-aliasing -pthread
++LDFLAGS = -fPIC -O2 -fno-strict-aliasing -pthread -static -static-libgcc -static-libstdc++
+ DLFLAGS = -shared
+ DLSUFFICS = .ld.so
+ # -lpthreads may be reuqired on some platforms instead of -pthreads
