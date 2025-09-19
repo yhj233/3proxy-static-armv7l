@@ -5,7 +5,7 @@
 set -e # Exit on error
 
 # 3proxy release version
-VERSION=0.9.4
+VERSION=0.9.5
 
 # change directory to the script location
 cd "$(dirname "$0")"
@@ -25,7 +25,7 @@ cd 3proxy-${VERSION}
 patch -p0 < ../static-build.patch
 
 # build 3proxy
-make -f Makefile.Linux ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
+make -f Makefile.Linux CC = zig cc -target arm-linux-musleabihf
 strip bin/*
 cp bin/* ../build/
 
