@@ -22,7 +22,7 @@ tar xvfz 3proxy.tar.gz
 cd 3proxy-${VERSION}
 
 # apply the patch
-patch -p0 < ../static-build.patch
+patch -p1 < ../static-build.patch
 
 # build 3proxy
 make -f Makefile.Linux CC = zig cc -target arm-linux-musleabihf
