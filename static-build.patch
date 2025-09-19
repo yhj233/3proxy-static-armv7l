@@ -1,17 +1,18 @@
 --- Makefile.Linux
 +++ Makefile.Linux
-@@ -8,7 +8,8 @@
--BUILDDIR = ../bin/
+@@ -8,13 +8,13 @@
+ # library support. Add -DSAFESQL for poorely written ODBC library / drivers.
+ 
+ BUILDDIR = ../bin/
 -CC = gcc
-+BUILDDIR = ../bin/
-+CC = arm-linux-gnueabihf-gcc
++CC = zig cc -target arm-linux-musleabihf
  
  CFLAGS = -g  -fPIC -O2 -fno-strict-aliasing -c -pthread -DWITHSPLICE -D_GNU_SOURCE -DGETHOSTBYNAME_R -D_THREAD_SAFE -D_REENTRANT -DNOODBC -DWITH_STD_MALLOC -DFD_SETSIZE=4096 -DWITH_POLL -DWITH_NETFILTER
  COUT = -o 
  LN = $(CC)
  DCFLAGS = 
 -LDFLAGS = -fPIC -O2 -fno-strict-aliasing -pthread
-+LDFLAGS = -fPIC -O2 -fno-strict-aliasing -pthread -static -static-libgcc -static-libstdc++
++LDFLAGS = -fPIC -O2 -fno-strict-aliasing -pthread -static-libgcc -static-libstdc++ --static
  DLFLAGS = -shared
  DLSUFFICS = .ld.so
  # -lpthreads may be reuqired on some platforms instead of -pthreads
