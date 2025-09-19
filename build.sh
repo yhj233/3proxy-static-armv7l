@@ -26,8 +26,8 @@ patch -p0 < ../static-build.patch
 
 # build 3proxy
 make -f Makefile.Linux
-mv bin/*.so ../build
-strip bin/*
+#mv bin/*.so ../build
+arm-linux-gnueabihf-strip bin/*
 cp bin/* ../build/
 
 # clean up
