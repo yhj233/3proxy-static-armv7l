@@ -25,7 +25,7 @@ cd 3proxy-${VERSION}
 patch -p0 < ../static-build.patch
 
 # build 3proxy
-make -f Makefile.Linux CC = zig cc -target arm-linux-musleabihf
+make -f Makefile.Linux
 strip bin/*
 cp bin/* ../build/
 
