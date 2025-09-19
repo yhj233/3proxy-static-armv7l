@@ -26,7 +26,8 @@ patch -p0 < ../static-build.patch
 
 # build 3proxy
 make -f Makefile.Linux
-strip bin/*
+#strip bin/*
+find bin/* -type f -executable ! -name "*.*" -exec strip {} +
 cp bin/* ../build/
 
 # clean up
