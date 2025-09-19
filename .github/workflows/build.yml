@@ -23,10 +23,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: env
+      -
+        name: Install snap
+        run: sudo snap install zig --classic --beta
+      - name: Env1
         uses: ConorMacBride/install-package@v1
         with:
-          apt: musl-tools gcc-mingw-w64-x86-64-win32 gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+          apt: musl-tools gcc-mingw-w64-x86-64-win32
       -
         name: Checkout
         uses: actions/checkout@v4
@@ -39,3 +42,25 @@ jobs:
         with:
           name: 3proxy
           path: build/*
+      - 
+        name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: TODO New Release.
+          draft: false
+          prerelease: false
+        
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./3proxy.zip
+          asset_name: 3proxy.zip
+          asset_content_type: application/zip
