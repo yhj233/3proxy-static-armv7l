@@ -2,13 +2,13 @@
 +++ Makefile.Linux
 @@ -9,1 +9,1 @@
 -CC = gcc
-+CC = arm-linux-gnueabihf-gcc
++CC = zig cc -target arm-linux-musleabihf
 @@ -14,7 +14,7 @@
  COUT = -o 
  LN = $(CC)
  DCFLAGS = 
--LDFLAGS = -fPIE -O2 -fno-strict-aliasing -pthread
-+LDFLAGS = -fPIE -O2 -fno-strict-aliasing -pthread -static -static-libgcc -static-libstdc++
+-LDFLAGS = -fPIC -O2 -fno-strict-aliasing -pthread
++LDFLAGS = -fPIC -O2 -fno-strict-aliasing -pthread -static -static-libgcc -static-libstdc++
  DLFLAGS = -shared
  DLSUFFICS = .ld.so
  # -lpthreads may be reuqired on some platforms instead of -pthreads
