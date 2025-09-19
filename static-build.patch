@@ -1,8 +1,5 @@
 --- Makefile.Linux.orig
 +++ Makefile.Linux
-@@ -9,1 +9,1 @@
--CC = gcc
-+CC = zig cc -target arm-linux-musleabihf
 @@ -14,7 +14,7 @@
  COUT = -o 
  LN = $(CC)
